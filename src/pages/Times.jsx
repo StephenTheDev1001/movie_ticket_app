@@ -1,6 +1,6 @@
 import standardTime from "../functions/standardTime";
 
-const Times = ({ title, selectTime }) => {
+const Times = ({ title, selectTime, prevStage }) => {
   const showTimes = ['11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15']
 
   const onClick = e => {
@@ -25,6 +25,12 @@ const Times = ({ title, selectTime }) => {
           })
         }
       </ul>
+      <button
+        onClick={prevStage}
+        className='w-80 p-3 mt-2 bg-white text-primary text-center'
+      >
+        <h1>Back</h1>
+      </button>
     </div>
   )
 }

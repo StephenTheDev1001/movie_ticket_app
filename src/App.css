@@ -5,3 +5,16 @@
 body {
   background-color: #242333;
 }
+
+.available{
+  background-color: #444451;
+}
+
+.selected {
+  background-color: #6feaf6;
+}
+
+.occupied {
+  background-color: #fff;
+}
+

@@ -11,7 +11,7 @@ const standardTime = militaryTime => {
     standardTimeOutput = "" + hours;
   } else if (hours > 12) {
     standardTimeOutput = "" + (hours - 12);
-  } else if (hours == 0) {
+  } else if (hours === '0') {
     standardTimeOutput = "12";
   }
 

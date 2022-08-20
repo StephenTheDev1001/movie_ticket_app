@@ -2,7 +2,8 @@ import './App.css';
 import { useState } from 'react'
 import Movies from './pages/Movies'
 import Times from './pages/Times'
-import SelectSeats from './pages/SelectSeats';
+import SelectSeats from './pages/SelectSeats'
+
 
 function App() {
   const [state, setState] = useState({
@@ -16,6 +17,14 @@ function App() {
     setState({
       ...state,
       stage: state.stage + 1
+    })
+  }
+
+  const prevStage = () => {
+    setState({
+      ...state,
+      stage: state.stage - 1,
+      selectedSeats: []
     })
   }
 
@@ -59,9 +68,9 @@ function App() {
     case 0:
       return <Movies selectMovie={selectMovie} />
     case 1:
-      return <Times title={state.title} selectTime={selectTime} nextStage={nextStage} />
+      return <Times title={state.title} selectTime={selectTime} nextStage={nextStage} prevStage={prevStage} />
     case 2:
-      return <SelectSeats seatClick={seatClick} />
+      return <SelectSeats title={state.title} time={state.time} seatClick={seatClick} tickets={state.selectedSeats.length} prevStage={prevStage} />
   }
 }
 

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const Seat = ({ seatClick, status, seatName }) => {
   const [state, setState] = useState({ status: status })
@@ -12,21 +12,26 @@ const Seat = ({ seatClick, status, seatName }) => {
       seatClick(seatName)
     }
   }
-  console.log(typeof state.status);
+
   const seatStatus = x => {
     switch (x) {
       case 0:
-        return 'tertiary'
+        return { backgroundColor: '#444451' }
       case 1:
-        return 'secondary'
+        return { backgroundColor: '#6feaf6' }
       case 2:
-        return 'white'
+        return { backgroundColor: '#fff' }
     }
   }
+
+
+
+  // ${ seatStatus(state.status) }
   return (
     <div
       onClick={onClick}
-      className={`bg-primary h-6 w-6 m-2 rounded-t-xl`}
+      className='h-6 w-6 m-2 rounded-t-xl'
+      style={seatStatus(state.status)}
     >
 
     </div>

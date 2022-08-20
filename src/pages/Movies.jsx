@@ -1,8 +1,6 @@
 import frozen from '../assets/frozen.jpeg'
 import matrix from '../assets/matrix.jpg'
 import skyfall from '../assets/skyfall.jpg'
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
 
 const Movies = ({ selectMovie }) => {
   const onClick = e => {
