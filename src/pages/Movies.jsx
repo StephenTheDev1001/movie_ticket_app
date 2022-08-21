@@ -1,6 +1,8 @@
 import frozen from '../assets/frozen.jpeg'
 import matrix from '../assets/matrix.jpg'
 import skyfall from '../assets/skyfall.jpg'
+import airbender from '../assets/airbender.jpg'
+import gump from '../assets/gump.jpg'
 
 const Movies = ({ selectMovie }) => {
   const onClick = e => {
@@ -22,10 +24,10 @@ const Movies = ({ selectMovie }) => {
           <img name='Skyfall' src={skyfall} alt="Skyfall Poster" />
         </button>
         <button onClick={onClick} className='w-[300px] p-1'>
-          <img name='Frozen II' src={frozen} alt="Frozen Poster" />
+          <img name='Avatar: The Last Airbender' src={airbender} alt="Avatar: The Last Airbender Poster" />
         </button>
         <button onClick={onClick} className='w-[300px] p-1'>
-          <img name='Matrix Resurrections' src={matrix} alt="Matrix Poster" />
+          <img name='Forrest Gump' src={gump} alt="Forrest Gump Poster" />
         </button>
       </div>
     </div>
