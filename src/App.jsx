@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Movies from './pages/Movies'
 import Times from './pages/Times'
 import SelectSeats from './pages/SelectSeats'
+import Receipt from './pages/Receipt';
 
 
 function App() {
@@ -13,17 +14,20 @@ function App() {
     selectedSeats: []
   })
 
+  // destructuing
+  const { title, time, selectedSeats, stage } = state
+
   const nextStage = () => {
     setState({
       ...state,
-      stage: state.stage + 1
+      stage: stage + 1
     })
   }
 
   const prevStage = () => {
     setState({
       ...state,
-      stage: state.stage - 1,
+      stage: stage - 1,
       selectedSeats: []
     })
   }
@@ -50,10 +54,10 @@ function App() {
     if (ind === -1) {
       setState({
         ...state,
-        selectedSeats: [...state.selectedSeats, seat]
+        selectedSeats: [...selectedSeats, seat]
       })
     } else {
-      const arr = state.selectedSeats
+      const arr = selectedSeats
       arr.splice(ind, 1)
 
       setState({
@@ -64,13 +68,16 @@ function App() {
   }
 
 
+
   switch (state.stage) {
     case 0:
       return <Movies selectMovie={selectMovie} />
     case 1:
-      return <Times title={state.title} selectTime={selectTime} nextStage={nextStage} prevStage={prevStage} />
+      return <Times title={title} selectTime={selectTime} nextStage={nextStage} prevStage={prevStage} />
     case 2:
-      return <SelectSeats title={state.title} time={state.time} seatClick={seatClick} tickets={state.selectedSeats.length} prevStage={prevStage} />
+      return <SelectSeats title={title} time={time} seatClick={seatClick} tickets={selectedSeats.length} nextStage={nextStage} prevStage={prevStage} />
+    case 3:
+      return <Receipt title={title} selectedSeats={selectedSeats} time={time} prevStage={prevStage} tickets={selectedSeats.length} />
   }
 }
 

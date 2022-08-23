@@ -1,7 +1,7 @@
 import Row from '../components/seats/Row'
 import standardTime from '../functions/standardTime'
 
-const SelectSeats = ({ seatClick, title, time, tickets, prevStage }) => {
+const SelectSeats = ({ seatClick, title, time, tickets, prevStage, nextStage }) => {
 
   // 0 available seat
   // 1 selected seat
@@ -57,6 +57,7 @@ const SelectSeats = ({ seatClick, title, time, tickets, prevStage }) => {
       <button
         className='w-80 p-3 bg-secondary text-primary text-center'
         style={tickets > 0 ? { visibility: 'visible' } : { visibility: 'hidden' }}
+        onClick={nextStage}
       >
         <h1>Pay Now for ({tickets}) seats</h1>
       </button>
