@@ -1,18 +1,21 @@
 import Row from '../components/seats/Row'
 import standardTime from '../functions/standardTime'
+import { useRef } from 'react'
 
 const SelectSeats = ({ seatClick, title, time, tickets, prevStage, nextStage }) => {
+  //returns 1 or 2
+  const one2 = () => {
+    const rand = Math.floor(Math.random() * 3);
+    return rand === 1 ? 0 : rand
+  }
 
-  // 0 available seat
-  // 1 selected seat
-  // 2 occupied seat
   const seatStatus = [
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 2, 2, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [2, 2, 2, 2, 0, 0, 0, 0],
-    [0, 0, 0, 2, 2, 0, 0, 0],
-    [0, 0, 2, 2, 2, 2, 0, 0],
+    [one2(), one2(), one2(), one2(), one2(), one2(), one2(), one2()],
+    [one2(), one2(), one2(), one2(), one2(), one2(), one2(), one2()],
+    [one2(), one2(), one2(), one2(), one2(), one2(), one2(), one2()],
+    [one2(), one2(), one2(), one2(), one2(), one2(), one2(), one2()],
+    [one2(), one2(), one2(), one2(), one2(), one2(), one2(), one2()],
+    [one2(), one2(), one2(), one2(), one2(), one2(), one2(), one2()],
   ]
 
   const screenStyle = {

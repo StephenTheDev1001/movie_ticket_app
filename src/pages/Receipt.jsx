@@ -1,7 +1,6 @@
 
 
 const Receipt = ({ title, time, selectedSeats }) => {
-  const pClasses = 'text-3xl p-3'
 
   return (
     <div className="receipt-container text-white flex items-center justify-center h-screen">
