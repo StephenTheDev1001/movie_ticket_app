@@ -32,6 +32,15 @@ function App() {
     })
   }
 
+  const stage0 = () => {
+    setState({
+      stage: 0,
+      time: '',
+      title: '',
+      selectedSeats: []
+    })
+  }
+
   const selectMovie = title => {
     setState({
       ...state,
@@ -77,7 +86,7 @@ function App() {
     case 2:
       return <SelectSeats title={title} time={time} seatClick={seatClick} tickets={selectedSeats.length} nextStage={nextStage} prevStage={prevStage} />
     case 3:
-      return <Receipt title={title} selectedSeats={selectedSeats} time={time} prevStage={prevStage} tickets={selectedSeats.length} />
+      return <Receipt title={title} selectedSeats={selectedSeats} time={time} stage0={stage0} tickets={selectedSeats.length} />
   }
 }
 
